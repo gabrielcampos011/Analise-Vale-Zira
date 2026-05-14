@@ -147,13 +147,7 @@ function ScoreBlock({
       >
         {title}
       </h3>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "1.5rem",
-        }}
-      >
+      <div className="score-grid">
         {scores.map((item, i) => (
           <ScoreCircle
             key={item.label}
@@ -261,9 +255,9 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section
+        className="hero-section"
         style={{
           position: "relative",
-          padding: "6rem 1.5rem 5rem",
           textAlign: "center",
           overflow: "hidden",
           background:
@@ -335,35 +329,17 @@ export default function Home() {
       </section>
 
       {/* ── Barra de Resumo ── */}
-      <section style={{ borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a", padding: "2rem 1.5rem" }}>
-        <div
-          style={{
-            maxWidth: "64rem",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "1rem",
-          }}
-          className="sm:grid-cols-4"
-        >
+      <section className="summary-section" style={{ borderTop: "1px solid #1a1a1a", borderBottom: "1px solid #1a1a1a" }}>
+        <div className="summary-grid">
           {SUMMARY.map((item) => (
-            <div
-              key={item.label}
-              style={{
-                textAlign: "center",
-                padding: "1.25rem 1rem",
-                borderRadius: "0.5rem",
-                background: "var(--bg-card)",
-                border: "1px solid #1a1a1a",
-              }}
-            >
-              <div style={{ fontFamily: F_MONO, fontSize: "2rem", fontWeight: 700, color: item.color }}>
+            <div key={item.label} className="summary-card">
+              <div className="summary-value" style={{ fontFamily: F_MONO, color: item.color }}>
                 {item.value}
               </div>
-              <div style={{ fontFamily: F_DISPLAY, fontSize: "0.75rem", fontWeight: 600, color: "var(--text-primary)", marginTop: "0.25rem" }}>
+              <div className="summary-label" style={{ fontFamily: F_DISPLAY }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: F_MONO, fontSize: "0.7rem", color: "var(--text-muted)", marginTop: "0.125rem" }}>
+              <div className="summary-sub" style={{ fontFamily: F_MONO }}>
                 {item.sub}
               </div>
             </div>
@@ -371,10 +347,10 @@ export default function Home() {
         </div>
       </section>
 
-      <main style={{ maxWidth: "64rem", margin: "0 auto", padding: "4rem 1.5rem" }}>
+      <main className="main-wrap">
 
         {/* ══ ATO 1 ══ Cenário Inicial ══════════════════════════════════════ */}
-        <section style={{ marginBottom: "6rem" }}>
+        <section className="section-spacing">
           <span style={{ fontFamily: F_MONO, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#dc2626" }}>
             Ato 1
           </span>
@@ -430,7 +406,7 @@ export default function Home() {
         </section>
 
         {/* ══ ATO 2 ══ O Que Foi Feito ═════════════════════════════════════ */}
-        <section style={{ marginBottom: "6rem" }}>
+        <section className="section-spacing">
           <span style={{ fontFamily: F_MONO, fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#dc2626" }}>
             Ato 2
           </span>
@@ -442,14 +418,7 @@ export default function Home() {
             profissional: velocidade, segurança e visibilidade no Google.
           </p>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "1rem",
-              marginBottom: "1.5rem",
-            }}
-          >
+          <div className="cards-grid">
             {IMPROVEMENTS.map((item, i) => (
               <AnimatedCard
                 key={item.title}
@@ -521,7 +490,7 @@ export default function Home() {
             <h3 style={{ fontFamily: F_DISPLAY, fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "1rem" }}>
               Ganhos obtidos
             </h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.75rem" }}>
+            <div className="gains-grid">
               {GAINS.map((g) => (
                 <GainCard key={g.label} label={g.label} delta={g.delta} color={g.color} />
               ))}
