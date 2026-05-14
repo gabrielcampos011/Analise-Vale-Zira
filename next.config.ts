@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  // React Compiler desabilitado para evitar otimizações que interferem
+  // em hooks de animação (IntersectionObserver + setState)
+  reactCompiler: false,
 };
 
 export default nextConfig;
